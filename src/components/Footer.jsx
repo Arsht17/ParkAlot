@@ -1,13 +1,6 @@
 import React from "react";
 import "../styles/footer.css";
 import logo from "../assets/icons/Vector.svg";
-import locationIcon from "../assets/icons/mynaui_location.svg";
-import socialX from "../assets/images/X.png";
-import socialXBlue from "../assets/images/X_blue.png.png";
-import socialFb from "../assets/images/Facebook F.png";
-import socialFbBlue from "../assets/images/F_blue.png.png";
-import socialIg from "../assets/images/Instagram.png";
-import socialIgBlue from "../assets/images/I_blue.png";
 
 export default function Footer() {
   return (
@@ -22,7 +15,7 @@ export default function Footer() {
               </a>
               <div className="footer__location">
                 <span>תל אביב, ישראל</span>
-                <img src={locationIcon} alt="" aria-hidden="true" />
+                <span className="footer__location-icon" aria-hidden="true" />
               </div>
             </div>
           </div>
@@ -69,46 +62,16 @@ export default function Footer() {
           <div className="footer__socials-title">לעדכונים</div>
           <div className="footer__socials-icons">
             <a href="#x" aria-label="X">
-              <img
-                className="footer__icon default"
-                src={socialX}
-                alt=""
-                aria-hidden="true"
-              />
-              <img
-                className="footer__icon hover"
-                src={socialXBlue}
-                alt=""
-                aria-hidden="true"
-              />
+              <span className="footer__icon footer__icon--x default" aria-hidden="true" />
+              <span className="footer__icon footer__icon--x-blue hover" aria-hidden="true" />
             </a>
             <a href="#facebook" aria-label="Facebook">
-              <img
-                className="footer__icon default"
-                src={socialFb}
-                alt=""
-                aria-hidden="true"
-              />
-              <img
-                className="footer__icon hover"
-                src={socialFbBlue}
-                alt=""
-                aria-hidden="true"
-              />
+              <span className="footer__icon footer__icon--facebook default" aria-hidden="true" />
+              <span className="footer__icon footer__icon--facebook-blue hover" aria-hidden="true" />
             </a>
             <a href="#instagram" aria-label="Instagram">
-              <img
-                className="footer__icon default"
-                src={socialIg}
-                alt=""
-                aria-hidden="true"
-              />
-              <img
-                className="footer__icon hover"
-                src={socialIgBlue}
-                alt=""
-                aria-hidden="true"
-              />
+              <span className="footer__icon footer__icon--instagram default" aria-hidden="true" />
+              <span className="footer__icon footer__icon--instagram-blue hover" aria-hidden="true" />
             </a>
           </div>
         </div>

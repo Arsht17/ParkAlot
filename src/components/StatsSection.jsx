@@ -74,8 +74,7 @@ export default function StatsSection({
                 <img
                   className="store-button__icon"
                   src={appStore}
-                  alt=""
-                  aria-hidden="true"
+                  alt="סמל Apple App Store"
                 />
                 <span className="store-button__text">
                   <span className="store-button__eyebrow">DOWNLOAD ON THE</span>
@@ -91,8 +90,7 @@ export default function StatsSection({
                 <img
                   className="store-button__icon"
                   src={googlePlay}
-                  alt=""
-                  aria-hidden="true"
+                  alt="סמל Google Play"
                 />
                 <span className="store-button__text">
                   <span className="store-button__eyebrow">GET IT ON</span>

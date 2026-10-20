@@ -77,7 +77,12 @@
   font-size: 16px;
 }
 
-.footer__location img {
+.footer__location-icon {
+  background-image: url("../assets/icons/mynaui_location.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: inline-block;
   width: 16px;
   height: 16px;
 }
@@ -186,10 +191,37 @@
 }
 
 .footer__icon {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
   width: 20px;
   height: 20px;
   position: absolute;
   transition: opacity 160ms ease;
+}
+
+.footer__icon--x {
+  background-image: url("../assets/images/X.png");
+}
+
+.footer__icon--x-blue {
+  background-image: url("../assets/images/X_blue.png.png");
+}
+
+.footer__icon--facebook {
+  background-image: url("../assets/images/Facebook F.png");
+}
+
+.footer__icon--facebook-blue {
+  background-image: url("../assets/images/F_blue.png.png");
+}
+
+.footer__icon--instagram {
+  background-image: url("../assets/images/Instagram.png");
+}
+
+.footer__icon--instagram-blue {
+  background-image: url("../assets/images/I_blue.png");
 }
 
 .footer__icon.hover {

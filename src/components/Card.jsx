@@ -1,6 +1,5 @@
 import React from "react";
 import "../styles/card.css";
-import gloss from "../assets/gloss.gif";
 
 export default function Card({
   className = "",
@@ -11,7 +10,7 @@ export default function Card({
 }) {
   return (
     <div className={`card card--${property1} ${className}`.trim()}>
-      <img className="card__gloss" src={gloss} alt="" aria-hidden="true" />
+      <span className="card__gloss" aria-hidden="true" />
       <div className="card__frame">
         <div
           className={`card__icon ${iconClassName}`.trim()}

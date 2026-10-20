@@ -36,11 +36,11 @@ export default function ParkingShowcaseSection({
         </ul>
       </div>
 
-      <div className="parking-section__media" aria-hidden="true">
+      <div className="parking-section__media">
         <img
           className="parking-section__image"
           src={parkingImg}
-          alt=""
+          alt="אפליקציית PARKO מציגה מקומות חניה זמינים ליד היעד"
           loading="lazy"
         />
       </div>

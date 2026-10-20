@@ -1,1 +1,1 @@
-A web protoype imported from figma for the ParkAlot WebPage design.
+A web prototype imported from figma for the ParkAlot web page design. please adjust the window for better view.

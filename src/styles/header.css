@@ -92,7 +92,6 @@
 }
 .btn-download {
   background: var(--primary-color);
-  box-shadow: 0 4px 2px rgba(128, 128, 128, 0.25);
 }
 .btn-download:hover, .btn-download:focus-visible { background: var(--primary-hover-color); }
 .btn-show {

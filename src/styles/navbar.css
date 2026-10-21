@@ -7,11 +7,11 @@
   max-width: 1384px;
   margin: 0 auto;
   padding: 8px 32px;
-  background-color: #22222233;
+  background-color: var(--nav-color);
   border-radius: 14px;
   position: relative;
-  backdrop-filter: blur(40px);
-  -webkit-backdrop-filter: blur(40px);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   box-sizing: border-box;
 }
 
@@ -21,7 +21,7 @@
   inset: 0;
   border-radius: 14px;
   padding: 1px;
-  background: linear-gradient(345deg, rgba(197, 222, 237, 1) 0%, #737373 100%);
+  background: var(--web-border-color);
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);
@@ -44,16 +44,17 @@
 }
 
 .navbar__link {
-  color: #fafafa;
+  color: var(--black-text-color);
   font-size: clamp(13px, 1.06vw, 16px);
-  font-weight: 400;
+  font-weight: 500;
   letter-spacing: 0.3px;
   transition: color 140ms ease;
   white-space: nowrap;
 }
 
-.navbar__link:hover {
-  color: #5b9aff;
+.navbar__link:hover,
+.navbar__link:focus-visible {
+  color: var(--primary-hover-color);
 }
 
 .navbar__brand {
@@ -66,7 +67,7 @@
 }
 
 .navbar__title {
-  color: var(--primary-color, #2f7af4);
+  color: var(--primary-hover-color);
   font-family: "Bruno Ace", "Inter", system-ui, sans-serif;
   font-size: 20px;
   letter-spacing: 1.8px;

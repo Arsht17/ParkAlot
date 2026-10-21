@@ -40,7 +40,7 @@
 }
 
 .parking-section__brand {
-  color: #2f7af4;
+  color: var(--primary-hover-color);
   font-family: "Bruno Ace", "Heebo", sans-serif;
   letter-spacing: 0.6px;
 }

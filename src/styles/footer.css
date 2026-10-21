@@ -1,6 +1,6 @@
 .footer {
   align-items: flex-end;
-  background-color: #e6e4f0;
+  background-color: #e7e4f1;
   border-radius: 30px 30px 0 0;
   display: flex;
   flex-direction: column;
@@ -59,13 +59,14 @@
   color: #000000;
   font-family: "Inter", "Heebo", sans-serif;
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 500;
   text-decoration: none;
   transition: color 160ms ease;
 }
 
-.footer__link:hover {
-  color: rgba(47, 122, 244, 1);
+.footer__link:hover,
+.footer__link:focus-visible {
+  color: var(--primary-hover-color);
 }
 
 .footer__location {
@@ -128,7 +129,7 @@
 
 .footer__bottom {
   align-items: flex-end;
-  border-top: 1px solid #c6c6c6;
+  border-top: 1px solid #c7c7c7;
   display: flex;
   justify-content: space-between;
   gap: clamp(24px, 9.39vw, 142px);
@@ -258,8 +259,8 @@
   color: #000000;
 }
 
-.footer__brand-accent {
-  color: #2e79f3 !important;
+.footer__copyright .footer__brand-accent {
+  color: var(--primary-hover-color);
   font-family: "Bruno Ace", "Heebo", sans-serif;
   letter-spacing: 0.23px;
 }

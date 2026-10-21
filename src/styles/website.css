@@ -5,6 +5,9 @@
   --drop-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.25);
   --grey-text: rgba(76, 76, 76, 1);
   --primary-color: rgba(47, 122, 244, 1);
+  --primary-hover-color: #0d62ed;
+  --nav-color: rgba(255, 255, 255, 0.5);
+  --web-border-color: #cce5ff;
   --red-color: rgba(237, 89, 91, 1);
   --shadow-box: 0px 0px 2px 0px rgba(0, 0, 0, 0.25);
   --unfocus-color: rgba(116, 114, 119, 1);

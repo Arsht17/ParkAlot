@@ -128,7 +128,7 @@
 }
 
 .stats-section .text-wrapper-6 {
-  color: #2e79f3;
+  color: var(--primary-hover-color);
   font-family: "Bruno Ace", "Heebo", sans-serif;
   letter-spacing: 0.36px;
 }

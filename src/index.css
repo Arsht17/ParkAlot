@@ -1,4 +1,6 @@
 :root {
+  /* Keep the viewport scrollbar on the right; .website owns the RTL content. */
+  direction: ltr;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;

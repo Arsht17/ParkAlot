@@ -61,15 +61,15 @@ export default function Footer() {
         <div className="footer__socials">
           <div className="footer__socials-title">לעדכונים</div>
           <div className="footer__socials-icons">
-            <button type="button" disabled aria-label="X - לא זמין באב-טיפוס" title="קישור לפרופיל X טרם הוגדר">
+            <button type="button" aria-label="X" title="קישור לפרופיל X טרם הוגדר">
               <span className="footer__icon footer__icon--x default" aria-hidden="true" />
               <span className="footer__icon footer__icon--x-blue hover" aria-hidden="true" />
             </button>
-            <button type="button" disabled aria-label="Facebook - לא זמין באב-טיפוס" title="קישור לפרופיל Facebook טרם הוגדר">
+            <button type="button" aria-label="Facebook" title="קישור לפרופיל Facebook טרם הוגדר">
               <span className="footer__icon footer__icon--facebook default" aria-hidden="true" />
               <span className="footer__icon footer__icon--facebook-blue hover" aria-hidden="true" />
             </button>
-            <button type="button" disabled aria-label="Instagram - לא זמין באב-טיפוס" title="קישור לפרופיל Instagram טרם הוגדר">
+            <button type="button" aria-label="Instagram" title="קישור לפרופיל Instagram טרם הוגדר">
               <span className="footer__icon footer__icon--instagram default" aria-hidden="true" />
               <span className="footer__icon footer__icon--instagram-blue hover" aria-hidden="true" />
             </button>

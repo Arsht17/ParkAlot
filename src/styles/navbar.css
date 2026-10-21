@@ -33,6 +33,6 @@
   .navbar__link { font-size: 14px; }
 }
 @media (max-width: 520px) {
-  .navbar { flex-wrap: wrap; justify-content: center; }
+  .navbar { flex-wrap: wrap; justify-content: flex-start; }
   .navbar__links { flex-basis: 100%; justify-content: center; gap: 10px 20px; }
 }

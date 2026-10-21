@@ -1,1 +1,1 @@
-A web prototype imported from figma for the final ParkAlot web page design. please adjust the window for better view.
+A working front-end prototype of ParkAlot final web page design, imported from figma as a connected product prototype.

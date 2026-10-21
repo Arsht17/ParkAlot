@@ -31,6 +31,7 @@ export default function FeaturesSection({
   return (
     <section
       id="about"
+      aria-labelledby="features-title"
       className={`features-section ${
         isVisible ? "is-visible" : ""
       } property-1-0-${state.property1} ${className}`.trim()}
@@ -40,7 +41,7 @@ export default function FeaturesSection({
       }}
     >
       <div className="h">
-        <h2 className="p">
+        <h2 className="p" id="features-title">
           <span className="span">למה לבחור ב-</span>
           <span className="text-wrapper-2">PARKO</span>
           <span className="span">{text}</span>

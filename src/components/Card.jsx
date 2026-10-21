@@ -17,8 +17,8 @@ export default function Card({
           aria-hidden="true"
         />
         <div className="card__text-wrapper">
-          <div className="card__title">{text}</div>
-          <div className="card__copy">{text1}</div>
+          <h3 className="card__title">{text}</h3>
+          <p className="card__copy">{text1}</p>
         </div>
       </div>
     </div>

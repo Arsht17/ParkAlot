@@ -100,8 +100,9 @@
 }
 
 .card__title {
+  margin: 0;
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 500;
   color: #000000;
 }
 
@@ -123,6 +124,7 @@
 }
 
 .card__copy {
+  margin: 0;
   font-size: 14px;
   color: var(--grey-text);
   line-height: 20px;

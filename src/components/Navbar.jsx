@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../styles/navbar.css";
 import vector from "../assets/icons/Vector.svg";
 
@@ -10,70 +10,47 @@ const links = [
 ];
 
 export default function Navbar() {
-  const handleNavClick = (event, href) => {
-    if (!href || !href.startsWith("#")) {
-      return;
-    }
-
-    const target = document.querySelector(href);
-    if (!target) {
-      return;
-    }
-
-    event.preventDefault();
-
+  useEffect(() => {
     const nav = document.querySelector(".website__nav");
-    const start = window.scrollY;
-    const navHeight = nav ? nav.getBoundingClientRect().height : 0;
-    const offset = navHeight + 24;
-    const isTopLink = href === "#header";
-    const end = isTopLink
-      ? 0
-      : target.getBoundingClientRect().top + start - offset;
-    const duration = isTopLink
-      ? Math.min(1000, Math.max(450, Math.abs(end - start) * 0.5))
-      : 300;
-    const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
-    const easeInOutCubic = (t) =>
-      t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-    let startTime;
+    if (!nav) return;
 
-    const step = (now) => {
-      if (startTime === undefined) {
-        startTime = now;
-      }
-      const progress = Math.min((now - startTime) / duration, 1);
-      const eased = isTopLink ? easeInOutCubic(progress) : easeOutCubic(progress);
-      window.scrollTo(0, start + (end - start) * eased);
-      if (progress < 1) {
-        requestAnimationFrame(step);
-      }
+    const updateScrollOffset = () => {
+      document.documentElement.style.setProperty(
+        "--nav-scroll-offset",
+        `${Math.ceil(nav.getBoundingClientRect().bottom + 24)}px`,
+      );
     };
 
-    requestAnimationFrame(step);
-  };
+    updateScrollOffset();
+    const observer = typeof ResizeObserver !== "undefined"
+      ? new ResizeObserver(updateScrollOffset)
+      : null;
+    observer?.observe(nav);
+    window.addEventListener("resize", updateScrollOffset);
+
+    return () => {
+      observer?.disconnect();
+      window.removeEventListener("resize", updateScrollOffset);
+      document.documentElement.style.removeProperty("--nav-scroll-offset");
+    };
+  }, []);
 
   return (
     <div className="navbar" dir="rtl">
       <a
         className="navbar__brand"
         href="#header"
-        onClick={(event) => handleNavClick(event, "#header")}
+        aria-label="PARKO - חזרה לראש העמוד"
       >
         <div className="navbar__logo">
-          <img src={vector} alt="PARKO logo" className="navbar__logo-img" />
+          <img src={vector} alt="לוגו PARKO" className="navbar__logo-img" width="40" height="36" />
         </div>
         <span className="navbar__title">PARKO</span>
       </a>
 
       <nav className="navbar__links" aria-label="ראשי" dir="rtl">
         {links.map((link) => (
-          <a
-            key={link.label}
-            className="navbar__link"
-            href={link.href}
-            onClick={(event) => handleNavClick(event, link.href)}
-          >
+          <a key={link.label} className="navbar__link" href={link.href}>
             {link.label}
           </a>
         ))}

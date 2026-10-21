@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import FeaturesSection from "./FeaturesSection";
 import ParkingShowcaseSection from "./ParkingShowcaseSection";
 import StatsSection from "./StatsSection";
+import StatsBand from "./StatsBand";
 import "../styles/body.css";
 
 export default function Body() {
@@ -15,7 +16,7 @@ export default function Body() {
     const sections = [
       { key: "features", selector: "#about" },
       { key: "showcase", selector: "#business" },
-      { key: "stats", selector: "#guide" },
+      { key: "stats", selector: "#download" },
     ];
 
     const reveal = (key) => {
@@ -97,6 +98,7 @@ export default function Body() {
 
   return (
     <div className="body" dir="rtl">
+      <StatsBand />
       <FeaturesSection
         isVisible={seen.features}
         onReveal={() => setSeen((s) => ({ ...s, features: true }))}

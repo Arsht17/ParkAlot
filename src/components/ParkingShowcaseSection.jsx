@@ -1,6 +1,6 @@
 import React from "react";
 import "../styles/showcase-section.css";
-import parkingImg from "../assets/images/source/(Wooden Hands).png";
+import parkingImg from "../assets/images/Frame img.png";
 
 const bullets = [
   "מעל 10,000 מקומות חניה ברשת שלנו",
@@ -16,16 +16,17 @@ export default function ParkingShowcaseSection({
     <section
       className={`parking-section ${isVisible ? "is-visible" : ""}`}
       id="business"
+      aria-labelledby="showcase-title"
       dir="rtl"
       onMouseEnter={onReveal}
     >
       <div className="parking-section__content">
-        <h2 className="parking-section__title">חניה ליד היעד שלכם</h2>
+        <h2 className="parking-section__title" id="showcase-title">חניה ליד היעד שלכם</h2>
         <p className="parking-section__text">
-          בין אם אתה נוסע לעבודה, קונה במרכז העיר או מבקר חברים,{" "}
-          <span className="parking-section__brand">PARKO</span> מסיר את הלחץ
+          בין אם אתם נוסעים לעבודה, קונים במרכז העיר או מבקרים חברים,{" "}
+          <span className="parking-section__brand">PARKO</span> מוריד את הלחץ
           מחיפוש חניה. רשת מקומות החניה המאומתים שלנו ברחבי העיר מבטיחה שתמיד
-          יהיה לך מקום לחנות.
+          יהיה לכם מקום לחנות.
         </p>
         <ul className="parking-section__list">
           {bullets.map((item) => (
@@ -42,6 +43,9 @@ export default function ParkingShowcaseSection({
           src={parkingImg}
           alt="אפליקציית PARKO מציגה מקומות חניה זמינים ליד היעד"
           loading="lazy"
+          decoding="async"
+          width="1081"
+          height="1066"
         />
       </div>
     </section>

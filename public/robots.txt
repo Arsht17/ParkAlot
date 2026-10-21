@@ -1,3 +1,4 @@
+# Prototype: replace TODO-PRODUCTION-DOMAIN before production deployment.
 User-agent: *
 Allow: /
 

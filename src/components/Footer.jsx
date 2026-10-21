@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <footer className="footer" id="contact" dir="ltr">
       <div className="footer__top">
-        <div className="footer__categories">
+        <nav className="footer__categories" aria-label="ניווט תחתון">
           <div className="footer__column">
             <div className="footer__title">תמיכה</div>
             <div className="footer__items">
@@ -26,12 +26,12 @@ export default function Footer() {
               <a className="footer__link" href="#about">
                 אודות
               </a>
-              <a className="footer__link" href="#privacy">
+              <span className="footer__link" aria-disabled="true" title="עמוד מדיניות הפרטיות אינו זמין באב-טיפוס">
                 מדיניות פרטיות
-              </a>
-              <a className="footer__link" href="#terms">
+              </span>
+              <span className="footer__link" aria-disabled="true" title="עמוד תנאי השירות אינו זמין באב-טיפוס">
                 תנאי שירות
-              </a>
+              </span>
             </div>
           </div>
 
@@ -46,14 +46,14 @@ export default function Footer() {
               </a>
             </div>
           </div>
-        </div>
+        </nav>
 
         <div className="footer__brand">
-          <div className="footer__brand-row">
+          <a className="footer__brand-row" href="#header" aria-label="PARKO - חזרה לראש העמוד">
             <span className="footer__brand-text">PARKO</span>
-            <img className="footer__brand-icon" src={logo} alt="PARKO logo" />
-          </div>
-          <p>הופכים חניה לפשוטה, מהירה וללא לחץ לנהגים בכול מקום.</p>
+            <img className="footer__brand-icon" src={logo} alt="לוגו PARKO" width="72" height="65" loading="lazy" />
+          </a>
+          <p>הופכים חניה לפשוטה, מהירה וללא לחץ לנהגים בכל מקום.</p>
         </div>
       </div>
 
@@ -61,18 +61,18 @@ export default function Footer() {
         <div className="footer__socials">
           <div className="footer__socials-title">לעדכונים</div>
           <div className="footer__socials-icons">
-            <a href="#x" aria-label="X">
+            <button type="button" disabled aria-label="X - לא זמין באב-טיפוס" title="קישור לפרופיל X טרם הוגדר">
               <span className="footer__icon footer__icon--x default" aria-hidden="true" />
               <span className="footer__icon footer__icon--x-blue hover" aria-hidden="true" />
-            </a>
-            <a href="#facebook" aria-label="Facebook">
+            </button>
+            <button type="button" disabled aria-label="Facebook - לא זמין באב-טיפוס" title="קישור לפרופיל Facebook טרם הוגדר">
               <span className="footer__icon footer__icon--facebook default" aria-hidden="true" />
               <span className="footer__icon footer__icon--facebook-blue hover" aria-hidden="true" />
-            </a>
-            <a href="#instagram" aria-label="Instagram">
+            </button>
+            <button type="button" disabled aria-label="Instagram - לא זמין באב-טיפוס" title="קישור לפרופיל Instagram טרם הוגדר">
               <span className="footer__icon footer__icon--instagram default" aria-hidden="true" />
               <span className="footer__icon footer__icon--instagram-blue hover" aria-hidden="true" />
-            </a>
+            </button>
           </div>
         </div>
 

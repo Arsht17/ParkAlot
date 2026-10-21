@@ -1,149 +1,43 @@
 .parking-section {
-  width: 1384px;
-  max-width: calc(100% - 40px);
-  margin: 0 auto;
-  padding: 20px 0;
   display: flex;
+  flex-direction: row-reverse;
   align-items: center;
-  justify-content: space-between;
-  gap: 48px;
-  min-height: 450px;
-  height: auto;
-  box-sizing: border-box;
-
+  gap: 64px;
+  width: 100%;
+  min-width: 0;
   opacity: 0;
   transition: opacity 300ms ease;
 }
-.parking-section.is-visible {
-  opacity: 1;
-}
-
-.parking-section__content {
-  flex: 1 1 0;
-  min-width: 0;
-  text-align: right;
-}
-
-.parking-section__title {
-  margin: 0 0 12px;
-  font-size: clamp(24px, 1.85vw, 28px);
-  font-weight: 700;
-  color: #0d0d0d;
-  letter-spacing: 1px;
-}
-
-.parking-section__text {
-  margin: 0 0 20px;
-  color: #4c4c4c;
-  font-size: clamp(16px, 1.19vw, 18px);
-  line-height: 1.6;
-}
-
-.parking-section__brand {
-  color: var(--primary-hover-color);
-  font-family: "Bruno Ace", "Heebo", sans-serif;
-  letter-spacing: 0.6px;
-}
-
-.parking-section__list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  gap: 8px;
-  color: #0d0d0d;
-}
-
-.parking-section__item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  justify-content: flex-start;
-}
-
-.parking-section__item::before {
-  content: "◆";
-  color: #2f7af4;
-  font-size: 12px;
-}
-
+.parking-section.is-visible { opacity: 1; }
+.parking-section__content { flex: 1; min-width: 0; text-align: right; }
+.parking-section__title { margin: 0 0 20px; font-size: 48px; font-weight: 600; line-height: 1.2; letter-spacing: 0; color: #000000; }
+.parking-section__text { margin: 0 0 32px; color: var(--grey-text); font-size: 20px; line-height: 1.6; }
+.parking-section__brand { color: var(--primary-hover-color); font-family: "Bruno Ace", sans-serif; }
+.parking-section__list { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; color: var(--black-text-color); font-size: 20px; line-height: 1.35; }
+.parking-section__item { display: flex; gap: 10px; align-items: baseline; }
+.parking-section__item::before { content: ""; flex: 0 0 8px; width: 8px; height: 8px; background: var(--primary-color); transform: rotate(45deg); }
 .parking-section__media {
-  width: min(421px, 34vw);
-  aspect-ratio: 421 / 402;
-  height: auto;
-  flex: 0 1 min(421px, 34vw);
-  border-radius: 16px;
+  position: relative;
+  width: 421.429px;
+  flex: 0 0 421.429px;
+  aspect-ratio: 421.429 / 402;
+  border: 1px solid var(--web-border-color);
+  border-radius: 14px;
   overflow: hidden;
-  box-shadow: 0 18px 40px rgba(17, 42, 86, 0.18);
-  background-image: url("../assets/images/parking_img.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  position: relative;
+  isolation: isolate;
+  background: url("../assets/images/parking_img.png") center / cover no-repeat;
 }
-
-.parking-section__image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  position: relative;
-  z-index: 2;
+.parking-section__media::before { content: ""; position: absolute; inset: 0; z-index: -1; background: rgba(34, 34, 34, 0.2); }
+.parking-section__image { position: absolute; left: 0.13%; top: 2.36%; width: 100%; height: auto; }
+@media (max-width: 1100px) {
+  .parking-section { gap: 40px; }
+  .parking-section__title { font-size: 36px; }
+  .parking-section__text, .parking-section__list { font-size: 18px; }
+  .parking-section__media { width: 36%; flex-basis: 36%; }
 }
-
-.parking-section__media::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 14px;
-  background: linear-gradient(
-    0deg,
-    rgba(34, 34, 34, 0.2) 0%,
-    rgba(34, 34, 34, 0.2) 100%
-  );
-  backdrop-filter: blur(2px) brightness(100%) saturate(100%);
-  -webkit-backdrop-filter: blur(2px) brightness(100%) saturate(100%);
-  pointer-events: none;
-  z-index: 1;
-}
-
-.parking-section__media::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  padding: 1px;
-  border-radius: 14px;
-  background: linear-gradient(
-    345deg,
-    rgba(197, 222, 237, 1) 0%,
-    rgba(115, 115, 115, 1) 100%
-  );
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask-composite: exclude;
-  pointer-events: none;
-  z-index: 3;
-}
-
-@media (max-width: 900px) {
-  .parking-section {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 24px;
-    max-width: 100%;
-    min-height: 0;
-  }
-
-  .parking-section__media {
-    width: min(100%, 421px);
-    height: auto;
-    aspect-ratio: 421 / 402;
-    flex-basis: auto;
-    align-self: center;
-  }
-
-  .parking-section__image {
-    height: 100%;
-  }
+@media (max-width: 767px) {
+  .parking-section { flex-direction: column; align-items: stretch; gap: 32px; }
+  .parking-section__title { font-size: 30px; }
+  .parking-section__text, .parking-section__list { font-size: 16px; }
+  .parking-section__media { width: min(421px, 100%); flex-basis: auto; align-self: center; }
 }

@@ -1,10 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800&family=Inter:wght@400;600;700&display=swap");
-
 :root {
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+  letter-spacing: 0;
 }
 
 *,
@@ -16,9 +16,9 @@
 body {
   margin: 0;
   min-height: 100vh;
-  background: #f3f4f8;
-  color: #0f172a;
-  font-family: "Heebo", "Inter", system-ui, -apple-system, "Segoe UI",
+  background: #fbf9fe;
+  color: #0d0d0d;
+  font-family: "Noto Sans Hebrew", "Heebo", "Inter", system-ui, -apple-system, "Segoe UI",
     sans-serif;
 }
 
@@ -34,4 +34,15 @@ img {
 
 button {
   font-family: inherit;
+}
+
+section[id], footer[id] { scroll-margin-top: var(--nav-scroll-offset, 142px); }
+a:focus-visible, button:focus-visible { outline: 3px solid #0d62ed; outline-offset: 5px; }
+.header a:focus-visible, .stats-section a:focus-visible { outline-color: #ffffff; }
+::selection { background: #cce5ff; color: #0d0d0d; }
+
+@media (prefers-reduced-motion: reduce) {
+  :root { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .features-section, .parking-section, .stats-section .section { opacity: 1; }
 }

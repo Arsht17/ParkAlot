@@ -26,12 +26,12 @@ export default function Footer() {
               <a className="footer__link" href="#about">
                 אודות
               </a>
-              <span className="footer__link" aria-disabled="true" title="עמוד מדיניות הפרטיות אינו זמין באב-טיפוס">
+              <button type="button" className="footer__link" title="עמוד מדיניות הפרטיות אינו זמין באב-טיפוס">
                 מדיניות פרטיות
-              </span>
-              <span className="footer__link" aria-disabled="true" title="עמוד תנאי השירות אינו זמין באב-טיפוס">
+              </button>
+              <button type="button" className="footer__link" title="עמוד תנאי השירות אינו זמין באב-טיפוס">
                 תנאי שירות
-              </span>
+              </button>
             </div>
           </div>
 

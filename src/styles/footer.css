@@ -56,6 +56,11 @@
 }
 
 .footer__link {
+  border: 0;
+  padding: 0;
+  background: none;
+  cursor: pointer;
+  text-align: right;
   color: #000000;
   font-family: "Inter", "Heebo", sans-serif;
   font-size: 16px;
@@ -69,8 +74,6 @@
   color: var(--primary-hover-color);
 }
 
-.footer__link[aria-disabled="true"] { cursor: not-allowed; }
-.footer__link[aria-disabled="true"]:hover { color: #000000; }
 
 .footer__location {
   align-items: center;

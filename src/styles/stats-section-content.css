@@ -21,9 +21,9 @@
   width: 173px;
   max-width: 100%;
   direction: ltr;
-  transition: background-color 160ms ease, transform 160ms ease;
+  transition: background-color 160ms ease;
 }
-.stats-section .store-button:hover { background: #f6f6f6; transform: translateY(-1px); }
+.stats-section .store-button:hover { background-color: #e0e0e0; }
 .stats-section .store-button__icon { width: 32px; height: 32px; object-fit: contain; flex-shrink: 0; }
 .stats-section .store-button__text { display: flex; flex-direction: column; text-align: left; color: #000000; font-family: "Inter", sans-serif; }
 .stats-section .store-button__eyebrow { font-size: 8px; line-height: 18px; }

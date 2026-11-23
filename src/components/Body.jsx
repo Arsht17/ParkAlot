@@ -5,7 +5,7 @@ import StatsSection from "./StatsSection";
 import StatsBand from "./StatsBand";
 import "../styles/body.css";
 
-export default function Body() {
+export default function Body({ text, language }) {
   const [seen, setSeen] = useState({
     features: false,
     showcase: false,
@@ -97,17 +97,21 @@ export default function Body() {
   }, []);
 
   return (
-    <div className="body" dir="rtl">
-      <StatsBand />
+    <div className="body">
+      <StatsBand text={text} />
       <FeaturesSection
+        text={text}
         isVisible={seen.features}
         onReveal={() => setSeen((s) => ({ ...s, features: true }))}
       />
       <ParkingShowcaseSection
+        text={text}
+        language={language}
         isVisible={seen.showcase}
         onReveal={() => setSeen((s) => ({ ...s, showcase: true }))}
       />
       <StatsSection
+        text={text}
         isVisible={seen.stats}
         onReveal={() => setSeen((s) => ({ ...s, stats: true }))}
       />

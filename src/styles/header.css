@@ -3,7 +3,6 @@
   width: 100%;
   padding: 24px 24px 0;
   color: #ffffff;
-  direction: rtl;
 }
 .header__content {
   position: relative;
@@ -27,14 +26,24 @@
   z-index: -2;
 }
 .gradient {
+  --hero-gradient-direction: to left;
+  --hero-gradient-dark: rgba(5, 10, 20, 0.78);
+  --hero-gradient-middle: rgba(5, 10, 20, 0.45);
+  --hero-gradient-end: 62%;
   position: absolute;
   inset: 0;
   z-index: -1;
   background:
-    linear-gradient(270deg, rgba(5, 10, 20, 0.78) 0%, rgba(5, 10, 20, 0.45) 38%, rgba(5, 10, 20, 0) 62%),
+    linear-gradient(var(--hero-gradient-direction), var(--hero-gradient-dark) 0%, var(--hero-gradient-middle) 38%, transparent var(--hero-gradient-end)),
     linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.25)),
     rgba(5, 10, 20, 0.18);
   pointer-events: none;
+}
+.website[dir="ltr"] .gradient {
+  --hero-gradient-direction: to right;
+  --hero-gradient-dark: rgba(5, 10, 20, 0.88);
+  --hero-gradient-middle: rgba(5, 10, 20, 0.6);
+  --hero-gradient-end: 72%;
 }
 .hero-section {
   display: flex;
@@ -52,7 +61,7 @@
   align-items: flex-start;
   gap: 20px;
   width: min(560px, 100%);
-  text-align: right;
+  text-align: start;
 }
 .header .h {
   margin: 0;
@@ -111,9 +120,11 @@
   .header { padding: 12px 12px 0; }
   .header__content { height: calc(100svh - 96px); max-height: none; min-height: 600px; border-radius: 24px; }
   .hero-section { width: calc(100% - 48px); gap: 32px; padding-top: 100px; padding-bottom: 48px; }
+  .website[lang="en"] .header__content { height: auto; min-height: max(600px, calc(100svh - 96px)); }
+  .website[lang="en"] .hero-section { padding-top: max(100px, calc(var(--nav-scroll-offset, 142px) - 12px)); }
   .header .h { font-size: 48px; line-height: 1.12; }
   .header .p { font-size: 18px; }
-  .gradient { background: linear-gradient(270deg, rgba(5, 10, 20, 0.85), rgba(5, 10, 20, 0.3)), rgba(5, 10, 20, 0.2); }
+  .gradient { background: linear-gradient(var(--hero-gradient-direction), rgba(5, 10, 20, 0.85), rgba(5, 10, 20, 0.3)), rgba(5, 10, 20, 0.2); }
   .btns { width: 100%; }
   .btn { padding: 14px 24px; font-size: 16px; }
 }

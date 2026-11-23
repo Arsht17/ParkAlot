@@ -3,7 +3,7 @@ import "../styles/header.css";
 import heroVideo from "../assets/Hero video.mp4";
 import QRCode from "./QRCode";
 
-export default function Header() {
+export default function Header({ text }) {
   const videoRef = useRef(null);
 
   useEffect(() => {
@@ -24,7 +24,7 @@ export default function Header() {
   }, []);
 
   return (
-    <header className="header" id="header" aria-labelledby="hero-title">
+    <header className="header" id="header" aria-labelledby="hero-title" tabIndex={-1}>
       <div className="header__content">
         <video
           ref={videoRef}
@@ -43,24 +43,24 @@ export default function Header() {
         <div className="hero-section">
           <div className="hero-text">
             <h1 className="h" id="hero-title">
-              <span>מוצאים חניה</span>{" "}
-              <span>בלי סיבובים</span>
+              <span>{text.heroLines[0]}</span>{" "}
+              <span>{text.heroLines[1]}</span>
             </h1>
             <div className="p-wrapper">
               <p className="p">
-                הופכים חניה לפשוטה, מהירה וללא לחץ לנהגים בכל מקום.
+                {text.heroDescription}
               </p>
             </div>
           </div>
           <div className="btns">
             <a className="btn btn-download" href="#download">
-              הורידו את PARKO
+              {text.heroDownload}
             </a>
             <a className="btn btn-show" href="#business">
-              צפה בהדגמה
+              {text.demo}
             </a>
           </div>
-          <QRCode />
+          <QRCode text={text} />
         </div>
       </div>
     </header>

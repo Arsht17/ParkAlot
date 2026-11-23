@@ -1,14 +1,13 @@
 import React from "react";
 import "../styles/showcase-section.css";
-import parkingImg from "../assets/images/Frame img.png";
+import parkingPhoneHe from "../assets/images/parking-phone-he.png";
+import parkingPhoneEn from "../assets/images/parking-phone-en.png";
 
-const bullets = [
-  "מעל 10,000 מקומות חניה ברשת שלנו",
-  "הזמנה בתוך 30 שניות בממוצע",
-  "זמין 24/7 בערים מרכזיות",
-];
+const parkingPhones = { he: parkingPhoneHe, en: parkingPhoneEn };
 
 export default function ParkingShowcaseSection({
+  text,
+  language,
   isVisible = false,
   onReveal = () => {},
 }) {
@@ -17,19 +16,15 @@ export default function ParkingShowcaseSection({
       className={`parking-section ${isVisible ? "is-visible" : ""}`}
       id="business"
       aria-labelledby="showcase-title"
-      dir="rtl"
       onMouseEnter={onReveal}
     >
       <div className="parking-section__content">
-        <h2 className="parking-section__title" id="showcase-title">חניה ליד היעד שלכם</h2>
+        <h2 className="parking-section__title" id="showcase-title">{text.parkingTitle}</h2>
         <p className="parking-section__text">
-          בין אם אתם נוסעים לעבודה, קונים במרכז העיר או מבקרים חברים,{" "}
-          <span className="parking-section__brand">PARKO</span> מוריד את הלחץ
-          מחיפוש חניה. רשת מקומות החניה המאומתים שלנו ברחבי העיר מבטיחה שתמיד
-          יהיה לכם מקום לחנות.
+          {text.parkingIntro}<span className="parking-section__brand">PARKO</span>{text.parkingDescription}
         </p>
         <ul className="parking-section__list">
-          {bullets.map((item) => (
+          {text.parkingBenefits.map((item) => (
             <li key={item} className="parking-section__item">
               {item}
             </li>
@@ -40,12 +35,10 @@ export default function ParkingShowcaseSection({
       <div className="parking-section__media">
         <img
           className="parking-section__image"
-          src={parkingImg}
-          alt="אפליקציית PARKO מציגה מקומות חניה זמינים ליד היעד"
+          src={parkingPhones[language]}
+          alt={text.parkingAlt}
           loading="lazy"
           decoding="async"
-          width="1081"
-          height="1066"
         />
       </div>
     </section>

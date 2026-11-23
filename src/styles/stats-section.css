@@ -1,3 +1,4 @@
 .stats-section { width: 100%; padding: 88px 64px; border-radius: 32px; background: linear-gradient(270deg, #12337a, #080d1a); color: #ffffff; }
+.website[dir="ltr"] .stats-section { padding-block: 56px; }
 .stats-section__inner { width: 100%; text-align: center; }
 @media (max-width: 767px) { .stats-section { padding: 56px 24px; border-radius: 24px; } }

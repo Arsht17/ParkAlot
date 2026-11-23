@@ -1,86 +1,87 @@
 import React from "react";
+import LanguageDropdown from "./LanguageDropdown";
 import "../styles/footer.css";
 import logo from "../assets/icons/Vector.svg";
 
-export default function Footer() {
+export default function Footer({ text, language, onLanguageChange }) {
   return (
-    <footer className="footer" id="contact" dir="ltr">
+    <footer className="footer" id="contact">
       <div className="footer__top">
-        <nav className="footer__categories" aria-label="ניווט תחתון">
+        <div className="footer__brand">
+          <a className="footer__brand-row" href="#header" aria-label={`PARKO - ${text.backToTop}`}>
+            <img className="footer__brand-icon" src={logo} alt={text.logoAlt} width="72" height="65" loading="lazy" />
+            <span className="footer__brand-text">PARKO</span>
+          </a>
+          <p>{text.footerDescription}</p>
+        </div>
+
+        <nav className="footer__categories" aria-label={text.footerNav}>
           <div className="footer__column">
-            <div className="footer__title">תמיכה</div>
+            <div className="footer__title">{text.product}</div>
+            <div className="footer__items">
+              <a className="footer__link" href="#download">
+                {text.download}
+              </a>
+              <a className="footer__link" href="#business">
+                {text.business}
+              </a>
+            </div>
+          </div>
+
+          <div className="footer__column">
+            <div className="footer__title">{text.company}</div>
+            <div className="footer__items">
+              <a className="footer__link" href="#about">
+                {text.about}
+              </a>
+              <button type="button" className="footer__link" title={text.legalUnavailable}>
+                {text.privacy}
+              </button>
+              <button type="button" className="footer__link" title={text.legalUnavailable}>
+                {text.terms}
+              </button>
+            </div>
+          </div>
+
+          <div className="footer__column">
+            <div className="footer__title">{text.support}</div>
             <div className="footer__items">
               <a className="footer__link" href="#contact">
-                צור קשר
+                {text.contact}
               </a>
               <div className="footer__location">
-                <span>תל אביב, ישראל</span>
                 <span className="footer__location-icon" aria-hidden="true" />
+                <span>{text.location}</span>
               </div>
             </div>
           </div>
-
-          <div className="footer__column">
-            <div className="footer__title">החברה</div>
-            <div className="footer__items">
-              <a className="footer__link" href="#about">
-                אודות
-              </a>
-              <button type="button" className="footer__link" title="עמוד מדיניות הפרטיות אינו זמין באב-טיפוס">
-                מדיניות פרטיות
-              </button>
-              <button type="button" className="footer__link" title="עמוד תנאי השירות אינו זמין באב-טיפוס">
-                תנאי שירות
-              </button>
-            </div>
-          </div>
-
-          <div className="footer__column">
-            <div className="footer__title">המוצר</div>
-            <div className="footer__items">
-              <a className="footer__link" href="#download">
-                הורדה
-              </a>
-              <a className="footer__link" href="#business">
-                לעסקים
-              </a>
-            </div>
-          </div>
         </nav>
-
-        <div className="footer__brand">
-          <a className="footer__brand-row" href="#header" aria-label="PARKO - חזרה לראש העמוד">
-            <span className="footer__brand-text">PARKO</span>
-            <img className="footer__brand-icon" src={logo} alt="לוגו PARKO" width="72" height="65" loading="lazy" />
-          </a>
-          <p>הופכים חניה לפשוטה, מהירה וללא לחץ לנהגים בכל מקום.</p>
-        </div>
       </div>
 
       <div className="footer__bottom">
-        <div className="footer__socials">
-          <div className="footer__socials-title">לעדכונים</div>
-          <div className="footer__socials-icons">
-            <button type="button" aria-label="X" title="קישור לפרופיל X טרם הוגדר">
-              <span className="footer__icon footer__icon--x default" aria-hidden="true" />
-              <span className="footer__icon footer__icon--x-blue hover" aria-hidden="true" />
-            </button>
-            <button type="button" aria-label="Facebook" title="קישור לפרופיל Facebook טרם הוגדר">
-              <span className="footer__icon footer__icon--facebook default" aria-hidden="true" />
-              <span className="footer__icon footer__icon--facebook-blue hover" aria-hidden="true" />
-            </button>
-            <button type="button" aria-label="Instagram" title="קישור לפרופיל Instagram טרם הוגדר">
-              <span className="footer__icon footer__icon--instagram default" aria-hidden="true" />
-              <span className="footer__icon footer__icon--instagram-blue hover" aria-hidden="true" />
-            </button>
+        <p className="footer__copyright">
+          {language === "he" ? (
+            <><bdi>© 2026</bdi>{" "}<bdi className="footer__brand-accent">PARKO</bdi>. {text.rights}</>
+          ) : (
+            <><span className="footer__brand-accent">PARKALOT</span>. {text.rights} © 2026</>
+          )}
+        </p>
+
+        <div className="footer__controls">
+          <LanguageDropdown label={text.language} language={language} onLanguageChange={onLanguageChange} />
+
+          <div className="footer__socials">
+            <div className="footer__socials-title">{text.updates}</div>
+            <div className="footer__socials-icons" dir="ltr">
+              {[["X", "x"], ["Facebook", "facebook"], ["Instagram", "instagram"]].map(([name, icon]) => (
+                <button key={icon} type="button" aria-label={name} title={text.profileUnavailable(name)}>
+                  <span className={`footer__icon footer__icon--${icon} default`} aria-hidden="true" />
+                  <span className={`footer__icon footer__icon--${icon}-blue hover`} aria-hidden="true" />
+                </button>
+              ))}
+            </div>
           </div>
         </div>
-
-        <p className="footer__copyright">
-          <span>© 2026 </span>
-          <span className="footer__brand-accent">PARKO</span>
-          <span>. כל הזכויות שמורות.</span>
-        </p>
       </div>
     </footer>
   );

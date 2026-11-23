@@ -68,7 +68,6 @@ export default function LanguageDropdown({ label, language, onLanguageChange }) 
   return (
     <div
       className="footer__language-control"
-      dir="ltr"
       ref={dropdownRef}
       onKeyDown={handleKeyDown}
       onBlur={(event) => {

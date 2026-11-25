@@ -1,5 +1,0 @@
-# Prototype: replace TODO-PRODUCTION-DOMAIN before production deployment.
-User-agent: *
-Allow: /
-
-Sitemap: https://TODO-PRODUCTION-DOMAIN.example/sitemap.xml

@@ -1,11 +1,12 @@
 import { useEffect, useId, useRef, useState } from "react";
+import { localePaths } from "../locales.js";
 
 const languages = [
   { code: "he", label: "עברית" },
   { code: "en", label: "English" },
 ];
 
-export default function LanguageDropdown({ label, language, onLanguageChange }) {
+export default function LanguageDropdown({ label, language }) {
   const [open, setOpen] = useState(false);
   const dropdownRef = useRef(null);
   const triggerRef = useRef(null);
@@ -16,7 +17,7 @@ export default function LanguageDropdown({ label, language, onLanguageChange }) 
   useEffect(() => {
     if (!open) return;
 
-    menuRef.current.querySelector('[aria-checked="true"]').focus({ preventScroll: true });
+    menuRef.current.querySelector('[aria-current="page"]').focus({ preventScroll: true });
 
     function dismissOutside(event) {
       if (!dropdownRef.current.contains(event.target)) setOpen(false);
@@ -51,7 +52,7 @@ export default function LanguageDropdown({ label, language, onLanguageChange }) 
       return;
     }
 
-    const options = Array.from(menuRef.current.querySelectorAll("button"));
+    const options = Array.from(menuRef.current.querySelectorAll("a"));
     const index = options.indexOf(event.target);
     const nextIndex = {
       ArrowDown: (index + 1) % options.length,
@@ -92,16 +93,23 @@ export default function LanguageDropdown({ label, language, onLanguageChange }) 
 
       <div id={menuId} className="footer__language-menu" ref={menuRef} role="menu" aria-label={label} hidden={!open}>
         {languages.map(({ code, label: optionLabel }) => (
-          <button
+          <a
             key={code}
-            type="button"
+            href={localePaths[code]}
+            hrefLang={code}
             className="footer__language-option"
-            role="menuitemradio"
-            aria-checked={language === code}
+            role="menuitem"
+            aria-current={language === code ? "page" : undefined}
             tabIndex={-1}
-            onClick={() => {
-              onLanguageChange(code);
-              closeAndFocusTrigger();
+            onClick={(event) => {
+              if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+              if (language === code) {
+                event.preventDefault();
+                closeAndFocusTrigger();
+              } else {
+                event.preventDefault();
+                window.location.assign(`${localePaths[code]}#contact`);
+              }
             }}
           >
             <span lang={code}>{optionLabel}</span>
@@ -110,7 +118,7 @@ export default function LanguageDropdown({ label, language, onLanguageChange }) 
                 <path d="m5 12 4 4L19 6" />
               </svg>
             )}
-          </button>
+          </a>
         ))}
       </div>
     </div>

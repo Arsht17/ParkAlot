@@ -3,7 +3,7 @@ import LanguageDropdown from "./LanguageDropdown";
 import "../styles/footer.css";
 import logo from "../assets/icons/Vector.svg";
 
-export default function Footer({ text, language, onLanguageChange }) {
+export default function Footer({ text, language }) {
   return (
     <footer className="footer" id="contact">
       <div className="footer__top">
@@ -68,7 +68,7 @@ export default function Footer({ text, language, onLanguageChange }) {
         </p>
 
         <div className="footer__controls">
-          <LanguageDropdown label={text.language} language={language} onLanguageChange={onLanguageChange} />
+          <LanguageDropdown label={text.language} language={language} />
 
           <div className="footer__socials">
             <div className="footer__socials-title">{text.updates}</div>

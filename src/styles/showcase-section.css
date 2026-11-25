@@ -4,8 +4,10 @@
   gap: 64px;
   width: 100%;
   min-width: 0;
-  opacity: 0;
   transition: opacity 300ms ease;
+}
+@media (prefers-reduced-motion: no-preference) {
+  :where(html[data-enhanced]) .parking-section { opacity: 0; }
 }
 .parking-section.is-visible { opacity: 1; }
 :where(.website[dir="rtl"]) .parking-section { flex-direction: row-reverse; }

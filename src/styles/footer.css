@@ -211,7 +211,7 @@
   cursor: pointer;
 }
 
-.footer__language-option[aria-checked="true"] {
+.footer__language-option[aria-current="page"] {
   background: #eef5ff;
   color: var(--primary-hover-color);
   font-weight: 600;
